@@ -18,6 +18,12 @@
 		76F21014253A9CBF00E70FEA /* PhotoCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F21013253A9CBF00E70FEA /* PhotoCollectionVC.swift */; };
 		76F2101A253AB2B700E70FEA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F21019253AB2B700E70FEA /* Constants.swift */; };
 		76F2101E253AB3CF00E70FEA /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2101D253AB3CF00E70FEA /* BaseVC.swift */; };
+		76F21022253AC3CB00E70FEA /* MyAlamofieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F21021253AC3CB00E70FEA /* MyAlamofieManager.swift */; };
+		76F21026253AC48500E70FEA /* BaseInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F21025253AC48500E70FEA /* BaseInterceptor.swift */; };
+		76F21029253AC8EF00E70FEA /* MyLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F21028253AC8EF00E70FEA /* MyLogger.swift */; };
+		76F2102C253AE30F00E70FEA /* MySearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2102B253AE30F00E70FEA /* MySearchRouter.swift */; };
+		76F21030253AEE5200E70FEA /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2102F253AEE5200E70FEA /* Photo.swift */; };
+		76F21034253AEE9F00E70FEA /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F21033253AEE9F00E70FEA /* MyError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		76F21013253A9CBF00E70FEA /* PhotoCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionVC.swift; sourceTree = "<group>"; };
 		76F21019253AB2B700E70FEA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		76F2101D253AB3CF00E70FEA /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		76F21021253AC3CB00E70FEA /* MyAlamofieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlamofieManager.swift; sourceTree = "<group>"; };
+		76F21025253AC48500E70FEA /* BaseInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterceptor.swift; sourceTree = "<group>"; };
+		76F21028253AC8EF00E70FEA /* MyLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLogger.swift; sourceTree = "<group>"; };
+		76F2102B253AE30F00E70FEA /* MySearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySearchRouter.swift; sourceTree = "<group>"; };
+		76F2102F253AEE5200E70FEA /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		76F21033253AEE9F00E70FEA /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		9ABBC7473360F872B06FA932 /* Pods-REST api with Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-REST api with Alamofire.release.xcconfig"; path = "Target Support Files/Pods-REST api with Alamofire/Pods-REST api with Alamofire.release.xcconfig"; sourceTree = "<group>"; };
 		EC38E7EF0C8DCBC30AA282D6 /* Pods-REST api with Alamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-REST api with Alamofire.debug.xcconfig"; path = "Target Support Files/Pods-REST api with Alamofire/Pods-REST api with Alamofire.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +83,8 @@
 		76F20FF5253A99B100E70FEA /* REST api with Alamofire */ = {
 			isa = PBXGroup;
 			children = (
+				76F2102E253AEE4200E70FEA /* Model */,
+				76F21020253AC3B100E70FEA /* API */,
 				76F21018253AB2A900E70FEA /* Utils */,
 				76F21016253AA71800E70FEA /* ViewControllers */,
 				76F20FF6253A99B100E70FEA /* AppDelegate.swift */,
@@ -98,8 +112,28 @@
 			isa = PBXGroup;
 			children = (
 				76F21019253AB2B700E70FEA /* Constants.swift */,
+				76F21033253AEE9F00E70FEA /* MyError.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		76F21020253AC3B100E70FEA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				76F21021253AC3CB00E70FEA /* MyAlamofieManager.swift */,
+				76F2102B253AE30F00E70FEA /* MySearchRouter.swift */,
+				76F21028253AC8EF00E70FEA /* MyLogger.swift */,
+				76F21025253AC48500E70FEA /* BaseInterceptor.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		76F2102E253AEE4200E70FEA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76F2102F253AEE5200E70FEA /* Photo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9387F27EA85A6A81706B783F /* Frameworks */ = {
@@ -233,12 +267,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F21030253AEE5200E70FEA /* Photo.swift in Sources */,
 				76F20FFB253A99B100E70FEA /* HomeVC.swift in Sources */,
+				76F21022253AC3CB00E70FEA /* MyAlamofieManager.swift in Sources */,
+				76F2102C253AE30F00E70FEA /* MySearchRouter.swift in Sources */,
+				76F21026253AC48500E70FEA /* BaseInterceptor.swift in Sources */,
 				76F20FF7253A99B100E70FEA /* AppDelegate.swift in Sources */,
 				76F20FF9253A99B100E70FEA /* SceneDelegate.swift in Sources */,
 				76F21010253A9C8200E70FEA /* UserListVC.swift in Sources */,
 				76F21014253A9CBF00E70FEA /* PhotoCollectionVC.swift in Sources */,
+				76F21029253AC8EF00E70FEA /* MyLogger.swift in Sources */,
 				76F2101E253AB3CF00E70FEA /* BaseVC.swift in Sources */,
+				76F21034253AEE9F00E70FEA /* MyError.swift in Sources */,
 				76F2101A253AB2B700E70FEA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

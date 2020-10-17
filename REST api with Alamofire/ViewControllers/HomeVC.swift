@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import Toast_Swift
 
-class HomeVC: UIViewController, UISearchBarDelegate, UIGestureRecognizerDelegate{
+class HomeVC: BaseVC, UISearchBarDelegate, UIGestureRecognizerDelegate{
 
 
     @IBOutlet weak var searachFileterSegment: UISegmentedControl!
@@ -118,7 +118,56 @@ class HomeVC: UIViewController, UISearchBarDelegate, UIGestureRecognizerDelegate
     
     //MARK: - IBAction methods
     @IBAction func onSearchButtonClicked(_ sender: UIButton) {
-       pushVC()
+        
+        let url = API.BASE_URL + "search/photos"
+        
+        guard let userInput = self.searchBar.text else { return }
+        // 키, 값 형식 딕셔너리
+//        let queryParam = ["query" : userInput, "client_id" : API.ClIENT_ID]
+//        AF.request(url, method: .get, parameters: queryParam).responseJSON(completionHandler: { response in
+//            debugPrint(response)
+//        })
+
+        var urlToCall: URLRequestConvertible?
+        
+        switch searachFileterSegment.selectedSegmentIndex {
+        case 0:
+            urlToCall = MySearchRouter.searchPhotos(term: userInput)
+            
+            MyAlamofireManager
+                .shared
+                .getPhotos(searchTerm: userInput,
+                           complition: { [weak self] result in
+                            guard let self = self else { return }
+                            
+                    switch result {
+                    case .success(let fetchedPhotos):
+                        print("HomeVC - getPhotos.succes - fetchedPhotos.count : \(fetchedPhotos.count)")
+                    case .failure(let error):
+                        print("HomeVC - getPhotos.failure - error : \(error.rawValue)")
+                        self.view.makeToast(error.rawValue, duration: 1.0, position: .center)
+                    }
+                    
+            })
+        case 1:
+            urlToCall = MySearchRouter.searchUsers(term: userInput)
+  
+        default:
+            print("default")
+        }
+        
+//        if let urlConvertible = urlToCall {
+//            MyAlamofireManager
+//                .shared
+//                .session
+//                .request(MySearchRouter.searchPhotos(term: userInput))
+//                .validate(statusCode: 200..<401)
+//                .responseJSON(completionHandler:
+//            { response in
+//                debugPrint(response)
+//            })
+//        }
+        pushVC()
     }
     
     @IBAction func searchFilterValueChanged(_ sender: UISegmentedControl) {
